@@ -1,4 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
+string [] GetStringArray()
+{
+    Console.WriteLine("Введите массив строк в одну строку, элементы через запятую:");
+    string str = Console.ReadLine();
+    string [] strArray = str.Split(',');
+    return strArray;
+}
+
 string [] CreateNewArray(string [] initArray)
 {
     string newStringArray = string.Empty;
@@ -9,7 +17,7 @@ string [] CreateNewArray(string [] initArray)
             newStringArray += initArray[i] + ",";
         }
     }
-    string [] array = newStringArray.Split(',');
+    string [] array = newStringArray.Split(',', StringSplitOptions.RemoveEmptyEntries);
     return array;
 }
 void PrintArray(string[] arr)
@@ -21,6 +29,6 @@ void PrintArray(string[] arr)
     Console.WriteLine();
 }
 
-string [] stringArray = {"qwerty","asdf","12",":)","Hi!"};
+string [] stringArray = GetStringArray();
 string [] result = CreateNewArray(stringArray);
 PrintArray(result);
